@@ -1,0 +1,2 @@
+import{a as n}from"../../../chunk-LMTCQCWT.js";import{a as i}from"../../../chunk-MQVGYSOB.js";import{f as a,h as t,i as o,l as r}from"../../../chunk-LGMSABOQ.js";a();var g=new BroadcastChannel(n),y=e=>e instanceof Event&&t(e)&&o(e,"data",!1),p=e=>{let s=i(e.body);return r(s,"Failed to parse FCM message: body is null"),{title:e.title,body:s}};globalThis.addEventListener("push",e=>{try{if(!y(e))return;let{notification:s}=e.data.json(),d=p(s);g.postMessage(d)}catch{}});
+

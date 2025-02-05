@@ -1,0 +1,2 @@
+window.sidekick(t=>{let e={direct:".sidebar--left .has-badge .badge",sidebar:".sidebar--left",team:".team-wrapper",teamDirect:".team-wrapper .team-container .badge",teamUnread:".team-wrapper .unread",unread:".sidebar--left .has-badge"},s=()=>{let a=document.querySelectorAll(e.direct).length,d=document.querySelectorAll(e.unread).length-a,r=document.querySelectorAll(e.teamDirect).length,c=document.querySelectorAll(e.teamUnread).length-r;t.setBadge(a+r+d+c)};t.observe(`${e.sidebar}, ${e.team}`,s)});
+

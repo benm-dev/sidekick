@@ -1,0 +1,1092 @@
+{
+  "cpuMonitor": {
+    "works": true,
+    "description": "When cpuMonitor works, displayed CPU Monitor section in global settings",
+    "params": {
+      "maxRetries": {
+        "value": 5,
+        "description": "[value is number] Wait for this number of samples before triggering an event"
+      },
+      "cpuThreshold": {
+        "value": 90,
+        "description": "[value is percent] If process takes more than this % of CPU, trigger an event"
+      },
+      "inactiveTime": {
+        "value": 2,
+        "description": "[value is minutes] Amount of time tab must be inactive before discarding"
+      },
+      "domainsBlacklist": {
+        "value": ["facebook.com", "notion.com", "slack.com", "linear.com"],
+        "description": "[value is array of string] List of domains to match: if domain is in this list, tab will be discarded"
+      },
+      "domainsWhitelist": {
+        "value": ["youtube.com", "meet.google.com", "zoom.us"],
+        "description": "[value is array of string] List of domains to match: if domain is in this list, tab will not be discarded even if it's present in blacklist"
+      },
+      "checkEverySeconds": {
+        "value": 30,
+        "description": "[value is seconds] Take CPU samples every N seconds"
+      },
+      "enableAutoDiscard": {
+        "value": true,
+        "description": "[value is boolean] Whether to discard greedy tabs automatically"
+      },
+      "enableNotifications": {
+        "value": true,
+        "description": "[value is boolean] Whether to show notification after tab was discarded"
+      }
+    }
+  },
+  "crashSender": {
+    "description": "",
+    "works": true,
+    "params": {
+      "checkIntervalMinutes": {
+        "description": "",
+        "value": 60
+      },
+      "sendCrashesTimeoutMinutes": {
+        "description": "",
+        "value": 120
+      }
+    }
+  },
+  "exploreSidekickV2": {
+    "works": false,
+    "description": "Enable new Explore Sidekick in the help sidecar",
+    "params": {
+      "isNtpMode": {
+        "description": "[boolean] Should show Explore Sidekick V2 on NTP",
+        "value": false
+      }
+    }
+  },
+  "extensionKicker": {
+    "works": true,
+    "description": "Configuration for CPU kicker",
+    "params": {
+      "earlyKickTimeout": {
+        "description": "[value is seconds] timeout between start extension and current kick",
+        "value": 120
+      },
+      "maxUsedJSHeap": {
+        "description": "[value is bytes] max allowable value of js memory used",
+        "value": 204857600
+      },
+      "maxPrivateMemory": {
+        "description": "[value is bytes] max allowable value of private memory used",
+        "value": 530360000
+      }
+    }
+  },
+  "gmailSignature": {
+    "works": false,
+    "description": "Integration with Gmail for signature invites link",
+    "params": {
+      "template": {
+        "description": "[value is string] Template as HTML, where %%link%% is user's invite link",
+        "value": "---<br/>Sent with Gmail for <a href='%%link%%'>Sidekick Browser</a>"
+      },
+      "intervalBetweenShowingDays": {
+        "description": "[value is days] interval between showing auth popup for feature",
+        "value": 14
+      }
+    }
+  },
+  "search": {
+    "works": true,
+    "description": "Configuration for search",
+    "params": {
+      "debug": {
+        "description": "[value is boolean] Debug mode",
+        "value": false
+      },
+      "verboseLog": {
+        "description": "[value is boolean] Verbose logging",
+        "value": false
+      },
+      "algorithm": {
+        "description": "[value is string] Algorithm for using in scoring",
+        "value": "basic"
+      },
+      "app": {
+        "description": "[value is object] Weights for scoring",
+        "value": {
+          "base": 1050,
+          "activeBonus": 1000,
+          "queryWordsCountRatio": 0,
+          "lastAccessDaysRatio": 50,
+          "visitsCountRatio": {
+            "all": 3,
+            "lastMonth": 10,
+            "lastWeek": 30,
+            "today": 100
+          },
+          "appNameMatchRatio": 15,
+          "workspaceNameMatchRatio": 5,
+          "workspaceActiveBonus": 50,
+          "selectRatio": 100
+        }
+      },
+      "openedTab": {
+        "description": "[value is object] Weights for scoring",
+        "value": {
+          "base": 2500,
+          "queryWordsCountRatio": 0,
+          "lastAccessMinutesRatio": 50,
+          "visitsCountRatio": {
+            "all": 3,
+            "lastMonth": 10,
+            "lastWeek": 30,
+            "today": 100
+          },
+          "titleMatchRatio": 10,
+          "appNameMatchRatio": 5,
+          "itemTypeMatchRatio": 2,
+          "urlMatchRatio": 1,
+          "selectRatio": 100
+        }
+      },
+      "bookmark": {
+        "description": "[value is object] Weights for scoring",
+        "value": {
+          "base": 1050,
+          "queryWordsCountRatio": 0,
+          "lastAccessDaysRatio": 50,
+          "visitsCountRatio": {
+            "all": 3,
+            "lastMonth": 10,
+            "lastWeek": 30,
+            "today": 100
+          },
+          "titleMatchRatio": 10,
+          "appNameMatchRatio": 5,
+          "itemTypeMatchRatio": 2,
+          "urlMatchRatio": 1,
+          "selectRatio": 100
+        }
+      },
+      "document": {
+        "description": "[value is object] Weights for scoring",
+        "value": {
+          "base": 1025,
+          "queryWordsCountRatio": 0,
+          "lastAccessDaysRatio": 50,
+          "visitsCountRatio": {
+            "all": 3,
+            "lastMonth": 10,
+            "lastWeek": 30,
+            "today": 100
+          },
+          "titleMatchRatio": 10,
+          "appNameMatchRatio": 5,
+          "itemTypeMatchRatio": 2,
+          "urlMatchRatio": 1,
+          "selectRatio": 300
+        }
+      },
+      "other": {
+        "description": "[value is object] Weights for scoring",
+        "value": {
+          "base": 500,
+          "queryWordsCountRatio": 0,
+          "lastAccessDaysRatio": 50,
+          "visitsCountRatio": {
+            "all": 3,
+            "lastMonth": 10,
+            "lastWeek": 30,
+            "today": 100
+          },
+          "titleMatchRatio": 10,
+          "appNameMatchRatio": 5,
+          "itemTypeMatchRatio": 2,
+          "urlMatchRatio": 1,
+          "selectRatio": 100
+        }
+      },
+      "textMatch": {
+        "description": "[value is object] Weights for scoring",
+        "value": {
+          "distancePenalty": -5,
+          "exactBonus": 100,
+          "exactUrlBonus": 2.5,
+          "startIncludeBonus": 80,
+          "includeBonus": 60,
+          "startFuzzyBonus": 0,
+          "fuzzyBonus": 0,
+          "usefulLimitDistance": 0,
+          "uselessBonus": 5
+        }
+      }
+    }
+  },
+  "featuresUpdater": {
+    "works": true,
+    "description": "Settings for features updater",
+    "params": {
+      "maxDelay": {
+        "description": "[value in ms] Maximum delay before request features after receiving push",
+        "value": 60000
+      }
+    }
+  },
+  "fcm": {
+    "works": false,
+    "description": "Enables Firebase Cloud Messaging instead of pusher"
+  },
+  "extensionWatchdog": {
+    "works": false,
+    "description": "Watchdog watches if extension consume a lot of CPU for long time. It watches and restarts extension if needed"
+  },
+  "globalAuthDomains": {
+    "works": true,
+    "description": "Allow to visit these domains as part of any app since required for auth",
+    "params": {
+      "domains": {
+        "description": "[value is list of domains] List of domains which popular for auth",
+        "value": [
+          "accounts.google.com",
+          "accounts.youtube.com",
+          "appleid.apple.com",
+          "login.live.com",
+          "account.live.com",
+          "signup.live.com",
+          "fpt.live.com",
+          "login.microsoftonline.com",
+          "login.microsoft.com",
+          "app.vssps.visualstudio.com",
+          "auth.atlassian.com",
+          "id.atlassian.com",
+          "oauth.vk.com"
+        ]
+      }
+    }
+  },
+  "nativeAdBlockAllowList": {
+    "works": true,
+    "description": "Allow list for browser based adblocker.",
+    "params": {
+      "domains": {
+        "description": "[value is list of domains] List of domains which shouldn't be blocked by adblocker",
+        "value": []
+      }
+    }
+  },
+  "tabsDiscarder2": {
+    "works": true,
+    "description": "Config for Tabs Discarder",
+    "params": {
+      "whitelistKeepSeconds": {
+        "description": "[value in secs] Time to discard messengers or tabs with whitelisted domains ",
+        "value": 259200
+      },
+      "forceDiscardAfterSeconds": {
+        "description": "[value in secs] Time to force discard tab by last access time",
+        "value": 86400
+      },
+      "reportIntervalSeconds": {
+        "description": "[value in secs] How often the system should send report about experiment. 0 should disable reporting",
+        "value": 900
+      },
+      "debug": {
+        "description": "[value is boolean] Enables debug logs.",
+        "value": false
+      },
+      "model_v1": {
+        "description": "[value is url] URL to ML-model which exported as JSON file",
+        "value": ""
+      },
+      "threshold_v1": {
+        "description": "[value is [0, 1] float] Threshold of ML-model scoring which using in decision maker to discarding tabs (tab's score should be less than the threshold for tab discarding) ",
+        "value": 0.5
+      },
+      "fraction_v1": {
+        "description": "[value is [0, 1] float] Ratio that using to define group for experiment on startup",
+        "value": 0.0
+      }
+    }
+  },
+  "usageTracker2": {
+    "works": false,
+    "description": "Send usage-track events through new mechanism",
+    "params": {
+      "activateTimeoutMs": {
+        "description": "[value in ms] Timeout before send track event",
+        "value": 5000
+      },
+      "experiment": {
+        "description": "[value is boolean] Enable A/B testing",
+        "value": false
+      }
+    }
+  },
+  "randomUserAgent": {
+    "works": true,
+    "description": "Randomize part of UserAgent",
+    "params": {
+      "disabledDomains": {
+        "description": "[value is list of stings] List of domains where randomization is turned off",
+        "value": []
+      }
+    }
+  },
+  "forcedUserAgents": {
+    "works": false,
+    "description": "Config for rewriting UserAgent in browser based on browser major version and platform",
+    "params": {
+      "88": [
+        {
+          "value": "Chrome/88.0.4324.150",
+          "platform": "mac"
+        },
+        {
+          "value": "Chrome/88.0.4325.150",
+          "platform": "win"
+        },
+        {
+          "value": "Chrome/88.0.4326.150",
+          "platform": "linux"
+        },
+        {
+          "value": "Chrome/88.0.4327.150",
+          "platform": "arm64"
+        }
+      ],
+      "90": [
+        {
+          "value": "Chrome/90.0.4430.85",
+          "platform": "mac"
+        },
+        {
+          "value": "Chrome/90.0.4431.85",
+          "platform": "win"
+        },
+        {
+          "value": "Chrome/90.0.4432.85",
+          "platform": "linux"
+        },
+        {
+          "value": "Chrome/90.0.4433.85",
+          "platform": "arm64"
+        }
+      ]
+    }
+  },
+  "usageAccumulator": {
+    "works": true,
+    "description": "Config for sending usage-track events through accumulator",
+    "params": {
+      "browsingUsage": {
+        "description": "[value is array of objects] Config for sending events split by time slots",
+        "value": [
+          {
+            "durationSeconds": 2400,
+            "sendIntervalSeconds": 60
+          },
+          {
+            "durationSeconds": 7200,
+            "sendIntervalSeconds": 600
+          },
+          {
+            "sendIntervalSeconds": 1800
+          }
+        ]
+      }
+    }
+  },
+  "sentrySampling": {
+    "works": false,
+    "description": "Reduce number of events sent to Sentry based on rules",
+    "params": {
+      "sampleRate": {
+        "description": "[value is number in 0..1] Same as https://docs.sentry.io/platforms/javascript/configuration/filtering/#sampling-error-events",
+        "value": 1
+      },
+      "tracesSampleRateUI": {
+        "description": "[value is number in 0..1] Rate of sampling for performance tracing for UI",
+        "value": 0.002
+      },
+      "tracesSampleRateBackground": {
+        "description": "[value is number in 0..1] Rate of sampling for performance tracing for background",
+        "value": 0.006
+      },
+      "rules": {
+        "description": "[value is array of rules] List of rules to apply filtering",
+        "value": null
+      }
+    }
+  },
+  "signUpDialog": {
+    "works": true,
+    "description": "Should we show and block sign up by temp users or not",
+    "params": {
+      "showAfterDays": {
+        "value": 1,
+        "description": "[value in days] Start showing sign up dialog after N days of actual using"
+      },
+      "blockAfterDays": {
+        "value": 3,
+        "description": "[value in days] Start blocking everything with sign up dialog after N days of actual using"
+      }
+    }
+  },
+  "overrideShortcuts": {
+    "works": true,
+    "description": "Override shortcuts by user locale",
+    "params": {
+      "version": {
+        "description": "[value is integer] Version of shortcuts override. Should only grow.",
+        "value": 1
+      },
+      "all": {
+        "description": "[value is object] Map of shortcut replaces by command names",
+        "value": {
+          "global-search": {
+            "from": "",
+            "all": "Alt+S",
+            "mac": "Alt+F"
+          },
+          "activate-service-1": {
+            "from": "",
+            "all": "Alt+1"
+          },
+          "activate-service-2": {
+            "from": "",
+            "all": "Alt+2"
+          },
+          "activate-service-3": {
+            "from": "",
+            "all": "Alt+3"
+          },
+          "activate-service-4": {
+            "from": "",
+            "all": "Alt+4"
+          },
+          "activate-service-5": {
+            "from": "",
+            "all": "Alt+5"
+          },
+          "activate-service-6": {
+            "from": "",
+            "all": "Alt+6"
+          },
+          "activate-service-7": {
+            "from": "",
+            "all": "Alt+7"
+          },
+          "activate-service-8": {
+            "from": "",
+            "all": "Alt+8"
+          },
+          "activate-service-9": {
+            "from": "",
+            "all": "Alt+9"
+          },
+          "toggle-active-tabs": {
+            "from": "",
+            "all": "Alt+Z"
+          },
+          "show-sessions": {
+            "from": "",
+            "all": "Alt+W"
+          },
+          "toggle-sessions-sidecar": {
+            "from": "",
+            "all": "Shift+Alt+W"
+          },
+          "toggle-help-sidecar": {
+            "from": "",
+            "all": "Alt+H"
+          }
+        }
+      },
+      "byLocale": {
+        "description": "[value is object] [value is object] Map of shortcut replaces by command names grouped by locale",
+        "value": {
+          "es": {
+            "activate-service-1": {
+              "from": "Alt+1",
+              "all": "Alt+Shift+1"
+            },
+            "activate-service-2": {
+              "from": "Alt+2",
+              "all": "Alt+Shift+2"
+            },
+            "activate-service-3": {
+              "from": "Alt+3",
+              "all": "Alt+Shift+3"
+            },
+            "activate-service-4": {
+              "from": "Alt+4",
+              "all": "Alt+Shift+4"
+            },
+            "activate-service-5": {
+              "from": "Alt+5",
+              "all": "Alt+Shift+5"
+            },
+            "activate-service-6": {
+              "from": "Alt+6",
+              "all": "Alt+Shift+6"
+            },
+            "activate-service-7": {
+              "from": "Alt+7",
+              "all": "Alt+Shift+7"
+            },
+            "activate-service-8": {
+              "from": "Alt+8",
+              "all": "Alt+Shift+8"
+            },
+            "activate-service-9": {
+              "from": "Alt+9",
+              "all": "Alt+Shift+9"
+            }
+          }
+        }
+      }
+    }
+  },
+  "sharingApps": {
+    "works": false,
+    "description": "Enable ability for P2P sharing apps"
+  },
+  "shortcutsAnalytics": {
+    "works": true,
+    "description": "Send report of shortcuts using",
+    "params": {
+      "sendEveryMinutes": {
+        "description": "[value is minutes] How often extension should send report to analytics",
+        "value": 1440
+      }
+    }
+  },
+  "hintsV2": {
+    "works": true,
+    "description": "Config for hints.",
+    "params": {
+      "autoCloseHintDelaySeconds": {
+        "value": 10,
+        "description": "[number in seconds] Delay before hint auto close"
+      },
+      "firstPeriodDays": {
+        "value": 7,
+        "description": "[number in days] First showing period days number"
+      },
+      "firstPeriodShowingPeriodHours": {
+        "value": 1,
+        "description": "[number in hours] Delay between showing in hours"
+      },
+      "otherTimeShowingPeriodHours": {
+        "value": 24,
+        "description": "[number in hours] Delay between showing in hours after first period"
+      },
+      "shortcutsDaysPeriodForHintPass": {
+        "value": 3,
+        "description": "[number in days] User must use shortcut in this period with shortcutsNumberForHintPass number of usage for hiding hint automatically"
+      },
+      "shortcutsNumberForHintPass": {
+        "value": 5,
+        "description": "[number] User must use shortcut times for hiding hint automatically"
+      },
+      "hintAfterTabsClosingCount": {
+        "value": 10,
+        "description": "[number] How much tabs/apps user must close before hint for cmd+W"
+      }
+    }
+  },
+  "showHintsConditions": {
+    "works": false,
+    "description": "Сonditions for showing hints.",
+    "params": {
+      "userWasActivated": {
+        "value": true,
+        "description": "[boolean] Has been user activated in settings."
+      },
+      "daysBeforeShowingFirstHints": {
+        "value": 1,
+        "description": "[number] Days before showing new hints for user."
+      }
+    }
+  },
+  "focusModeHint": {
+    "works": true,
+    "description": "Show hint before enabling sync of focus mode",
+    "params": {
+      "dontBlockSync": {
+        "value": true,
+        "description": "[value is boolean] Should we enable the sync without confirming from the user"
+      },
+      "startAutoShowAfterDays": {
+        "value": 1,
+        "description": "[value in days] When we start to auto show the hint after actual usage days"
+      },
+      "countDaysToAutoShow": {
+        "value": 5,
+        "description": "[value in days] How much of actual usage days we should show the hint"
+      },
+      "shouldEnableAfterFinish": {
+        "value": true,
+        "description": "[value is boolean] Should we turn sync of focus mode on after finishing auto-showing hint"
+      }
+    }
+  },
+  "pmfSurvey2": {
+    "works": false,
+    "description": "Whether to show PMF survey banner on NTP",
+    "params": {
+      "surveyUrl": {
+        "description": "[value is url] Survey url",
+        "value": ""
+      },
+      "showEveryDays": {
+        "description": "[value is days] How often we should show the popup",
+        "value": 7
+      },
+      "maxTimesToShow": {
+        "description": "[value is number] Max times we should show the popup if user close it",
+        "value": 3
+      }
+    }
+  },
+  "syncV2": {
+    "works": false,
+    "description": "Enable ability to sync"
+  },
+  "syncSessions": {
+    "works": false,
+    "description": "Enable ability to sync sessions",
+    "params": {
+      "syncIntervalSeconds": {
+        "description": "[value is number in seconds] Interval show syncing with backend",
+        "value": 300
+      }
+    }
+  },
+  "proxy": {
+    "works": true,
+    "description": "Ability to use our proxy server",
+    "params": {
+      "servers": {
+        "description": "[value is list of domains] List of proxy servers",
+        "value": ["https://example:example@prx.meetsidekick.com"]
+      },
+      "domains": {
+        "value": {
+          "Twitter": ["twitter.com", "twimg.com"],
+          "WhatsApp": ["whatsapp.com"],
+          "Instagram": ["instagram.com"],
+          "Linkedin.com": ["linkedin.com", "licdn.com"],
+          "Usertesting.com": ["usertesting.com"],
+          "Facebook and FB Messenger": [
+            "fb.com",
+            "facebook.com",
+            "messenger.com",
+            "fbcdn.com",
+            "fbcdn.net"
+          ]
+        },
+        "description": "[value is list of domains] List of domains which will be proxy"
+      }
+    }
+  },
+  "subscriptionPriceExperiment": {
+    "works": false,
+    "description": "Settings for special price for Pro plan (experiment)"
+  },
+  "autoSyncFocusMode": {
+    "works": true,
+    "params": {
+      "runEveryDays": {
+        "description": "[value in days] How often we should auto-sync status in apps with Focus mode",
+        "value": 7
+      },
+      "runEveryDaysFor": {
+        "value": {
+          "discord": 3,
+          "msteams": 3,
+          "skype": 3,
+          "slack": 3,
+          "whatsapp": 3
+        }
+      }
+    }
+  },
+  "syncFocusMode": {
+    "works": true,
+    "params": {
+      "dontClearStatus": {
+        "value": false,
+        "description": "[value is boolean] By default some messengers clear status after 1 day, this parameter can disable the clearing"
+      }
+    }
+  },
+  "hoverAppMenuSidebar": {
+    "works": false,
+    "description": "Experiment. Enable feature for hover open app menu",
+    "params": {
+      "openningTime": {
+        "value": 600,
+        "description": "[value in ms] hover time-out for open app service popup"
+      },
+      "closingTime": {
+        "value": 400,
+        "description": "[value in ms] hover time-out for close app service popup"
+      },
+      "autoClosingTime": {
+        "value": 2000,
+        "description": "[value in ms] closing time when cursor not hover app popup"
+      }
+    }
+  },
+  "hoverSessionSwitcherSidebar": {
+    "works": false,
+    "description": "Experiment. Enable feature for hover open session switcher",
+    "params": {
+      "delayBeforeShowing": {
+        "value": 600,
+        "description": "[value in ms] hover time-out for open session popup"
+      },
+      "delayBeforeHiding": {
+        "value": 400,
+        "description": "[value in ms] hover time-out for close session popup"
+      },
+      "delayBeforeAutoHiding": {
+        "value": 2000,
+        "description": "[value in ms] closing time when cursor not hover session popup"
+      }
+    }
+  },
+  "distractionBlocker": {
+    "works": false,
+    "description": "Enable Distraction Blocker",
+    "params": {
+      "rules": {
+        "description": "[value is list of rules] List of rules which should't be blocked by default",
+        "value": [
+          {
+            "from": "youtube.com",
+            "to": "mail.google.com"
+          },
+          {
+            "from": "facebook.com",
+            "to": "mail.google.com"
+          },
+          {
+            "from": "instagram.com",
+            "to": "mail.google.com"
+          }
+        ]
+      },
+      "schedule": {
+        "description": "[value is dict of options] Dict with default options for scheduling distaction blocker",
+        "value": {
+          "allDay": false,
+          "from": "09:00",
+          "to": "18:00",
+          "weekdays": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
+        }
+      },
+      "isIntroPopupEnabled": {
+        "description": "[value in boolean] the flag of intro modal enabled",
+        "value": false
+      },
+      "introPopupDelayHours": {
+        "description": "[value in number] the number of hours after onboarding that modals should be delayed",
+        "value": 12
+      }
+    }
+  },
+  "calendarsIntegrationV2": {
+    "works": false,
+    "description": "Enable Google and Microsoft calendars integration"
+  },
+  "walkthroughV2": {
+    "works": false,
+    "description": "Enable Walkthrough feature"
+  },
+  "intercom": {
+    "works": false,
+    "description": "Intercom feature visibility",
+    "params": {
+      "disableForTrialUsers": {
+        "value": true,
+        "description": "[boolean] If true - intercom will visible for paid users, teams and users which get pro plan as gift"
+      }
+    }
+  },
+  "collections": {
+    "works": false,
+    "description": "Enable collections feature"
+  },
+  "forceCollectionsEnableForTeams": {
+    "works": false,
+    "description": "Force enable collections for users with team plan even if collections feature is disabled"
+  },
+  "searchIconInToolbar": {
+    "works": false,
+    "description": "Enable search icon in toolbar instead of sidebar"
+  },
+  "defaultBrowserNotificationV3": {
+    "works": false,
+    "description": "Settings for showing default browser notifications reminder",
+    "params": {
+      "firstPeriodInDays": {
+        "value": 14,
+        "description": "[value in days] First showing period days number"
+      },
+      "intervalForFirstPeriodInHours": {
+        "value": 48,
+        "description": "[value in hours] Delay between showing in hours in the first period"
+      },
+      "intervalForOtherPeriodInHours": {
+        "value": 336,
+        "description": "[value in hours] Delay between showing in hours"
+      },
+      "delayFromOnboardingInHours": {
+        "value": 48,
+        "description": "[value is number in hours] Delay after onboarding before showing"
+      },
+      "useDefaultBrowserUI": {
+        "value": true,
+        "description": "[value is boolean] Use browser topbar UI if true or our custom popup if false"
+      }
+    }
+  },
+  "shortcutsPopup": {
+    "works": true,
+    "params": {
+      "limitDaysForPopup": {
+        "description": "[value in days] How much days for must visible button of shortcuts popup",
+        "value": 30
+      }
+    }
+  },
+  "actualMinutesUsedReport": {
+    "works": true,
+    "params": {
+      "sendEveryMinutes": {
+        "description": "[value in minutes] How often the system should send report about actual minutes used. 0 should disable reporting",
+        "value": 30
+      },
+      "maxEventsPerDay": {
+        "description": "[value in integer] Maximum count of events that can be sent per day. 0 should disable the limit",
+        "value": 0
+      }
+    }
+  },
+  "focusModeShortcut": {
+    "works": false,
+    "description": "Enable window focus mode shortcut, allowing hiding tab strip and sidebar"
+  },
+  "newBilling": {
+    "works": true,
+    "description": "A/B switcher for old and new billing",
+    "params": {
+      "startTrialForOldUsers": {
+        "description": "[boolean] Try to start trial for not new users",
+        "value": false
+      },
+      "daysBeforeShowingExpireSoon": {
+        "description": "[number in days] Number of days before showing UI about trial expiring soon",
+        "value": 7
+      },
+      "disableForTeamUsers": {
+        "description": "[boolean] Is new billing disabled for team users",
+        "value": true
+      },
+      "expireSoonShowingInterval": {
+        "description": "[number in hours] How often we can show trial expire soon popup",
+        "value": 24
+      }
+    }
+  },
+  "yearlyOfferPopup": {
+    "works": false,
+    "description": "Should show special offer yearly upgrade popup on NTP. Only for monthly paid subs.",
+    "params": {
+      "intervalInDays": {
+        "value": 14,
+        "description": "[value in days] how often show popup"
+      }
+    }
+  },
+  "muteNotificationsPopup": {
+    "works": false,
+    "description": "A/B switcher for old and new notifications on sidebar",
+    "params": {
+      "delayBeforeShowing": {
+        "value": 600,
+        "description": "[value in ms] hover time-out for open popup"
+      },
+      "delayBeforeHiding": {
+        "value": 400,
+        "description": "[value in ms] hover time-out for close popup"
+      },
+      "delayBeforeAutoHiding": {
+        "value": 2000,
+        "description": "[value in ms] closing time when cursor not hover popup"
+      }
+    }
+  },
+  "progressiveDiscountOffer": {
+    "works": false,
+    "description": "Last chance offer for annual billed plan before Trial ends and once for paid users",
+    "params": {
+      "daysBeforeTrialEndToShow": {
+        "value": 3,
+        "description": "[value in days] delay before trial ending"
+      },
+      "showingPeriodHours": {
+        "value": 24,
+        "description": "[value in hours] offer period"
+      },
+      "showingIntervalHours": {
+        "value": 6,
+        "description": "[value in hours] interval for showing in showingPeriodHours"
+      },
+      "showForNotTrial": {
+        "value": true,
+        "description": "[value is boolean] Once show for every not trial/yearly/forever-free users"
+      }
+    }
+  },
+  "afterTrialDiscountOffer": {
+    "works": false,
+    "description": "Discount for motivating to buy Pro plan after trials end",
+    "params": {
+      "showingPeriodHours": {
+        "value": 24,
+        "description": "[value in hours] offer period"
+      },
+      "showingIntervalHours": {
+        "value": 6,
+        "description": "[value in hours] interval for showing in showingPeriodHours"
+      },
+      "daysAfterTrialEndToShow": {
+        "value": 3,
+        "description": "[value in days] delay before trial ending"
+      }
+    }
+  },
+  "helpLinks": {
+    "works": true,
+    "description": "URLs for links shown in Help sidecar",
+    "params": {
+      "learningCenter": {
+        "description": "[string] Learning Center",
+        "value": "https://help.meetsidekick.com/en/"
+      },
+      "whatsNew": {
+        "description": "[string] What's New",
+        "value": "https://help.meetsidekick.com/en/articles/6767154-what-s-new-version-history"
+      },
+      "discordCommunity": {
+        "description": "[string] Discord Community",
+        "value": "https://discord.gg/GWDC62Yh9y"
+      },
+      "whySidekickFast": {
+        "description": "[string] Why Sidekick browser is so fast",
+        "value": "https://www.meetsidekick.com/why-sidekick-browser-is-so-fast/"
+      }
+    }
+  },
+  "tasks": {
+    "works": false,
+    "description": "New Tasks manager"
+  },
+  "beforeProductHuntPopup": {
+    "works": false,
+    "description": "Whether to show Product Hunt notification and popup on NTP",
+    "params": {
+      "date": {
+        "description": "When to show 'before Product Hunt' popup. The banner on NTP will be shown after 4 hours.",
+        "value": {
+          "hour": 9,
+          "minutes": 1,
+          "day": 5,
+          "month": 10,
+          "year": 2023
+        }
+      }
+    }
+  },
+  "productHuntPopupLive": {
+    "works": false,
+    "description": "Whether to show Product Hunt Live notification and popup on NTP",
+    "params": {
+      "productHuntLink": {
+        "description": "Link to which banner will follow",
+        "value": "https://www.producthunt.com/posts/sidekick-browser-for-teams"
+      }
+    }
+  },
+  "adblockToolbarButton": {
+    "works": false,
+    "description": "Should show adblocker button on toolbar"
+  },
+  "b2b": {
+    "works": false,
+    "description": "Is b2b enabled",
+    "params": {
+      "minInvitationLimitForNewTeam": {
+        "description": "[number] Minimum limit of people to invite to create a team",
+        "value": 3
+      }
+    }
+  },
+  "splitViewApps": {
+    "works": false,
+    "description": "Whether to open apps in split view that have shouldOpenInSplitView flag"
+  },
+  "sessionsForOldUsers": {
+    "works": false,
+    "description": "If old users can still use sessions without pro subscription",
+    "params": {
+      "shouldShowUpgradePopup": {
+        "value": false,
+        "description": "[boolean] should show sessions pro upgrade popup"
+      }
+    }
+  },
+  "verticalTabs": {
+    "works": false,
+    "description": "Enable vertical tabs preference",
+    "params": {
+      "shouldOpenNewTabsOnTop": {
+        "value": false,
+        "description": "[boolean] should open NTP on the top of the tabs list"
+      }
+    }
+  },
+  "showCollectionModal": {
+    "works": false,
+    "description": "Whether to show collection modal",
+    "params": {
+      "daysLimitBeforeToShow": {
+        "value": 2,
+        "description": "after [number] days we can show modal"
+      }
+    }
+  },
+  "showVerticalTabsModal": {
+    "works": false,
+    "description": "Whether to show vertical tabs modal and banner"
+  },
+  "showPaidTrialModal": {
+    "works": false,
+    "description": "Whether to show paid trial modal",
+    "params": {
+      "daysBeforeShowing": {
+        "value": 3,
+        "description": "[number] days before showing modal"
+      },
+      "reminderCounter": {
+        "value": 4,
+        "description": "[number] of times to show modal if user clicked remind later"
+      }
+    }
+  },
+  "cancelDiscountOffer": {
+    "works": false,
+    "description": "Whether to show popup with cancel discount offer"
+  }
+}

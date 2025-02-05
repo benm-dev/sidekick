@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>New Tab</title>
+    <link rel="stylesheet" href="../../shared/common.css" />
+    <link rel="stylesheet" href="../../shared/variables.css" />
+    <!--
+      Script to detect ntp background faster.
+      After any changes to the script you should update manifest.json
+      content_security_policy property with the new sha hash.
+      You can find required hash in ntp console.
+    -->
+    <script>
+      const preferDarkQuery = '(prefers-color-scheme: dark)'
+      const mql = window.matchMedia(preferDarkQuery)
+      const theme = localStorage.getItem('theme')
+
+      const isDark = theme === 'dark'
+      const isAuto = theme === 'auto'
+
+      if (isDark || (isAuto && mql.matches)) {
+        document.querySelector('html').style.backgroundColor = '#1a1a1a'
+      }
+    </script>
+  </head>
+  <body style="overscroll-behavior: none">
+    <script src="../../ntp/ntp.js" type="module"></script>
+    <div id="app"></div>
+  </body>
+</html>

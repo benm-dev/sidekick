@@ -1,0 +1,211 @@
+{
+  "manifest_version": 3,
+  "name": "Sidekick for Edge",
+  "version": "1.0.0",
+  "description": "A workspace and productivity extension for Microsoft Edge",
+  "version_name": "158.1.0-78598c500d-dirty",
+  "author": "PushPlayLabs Inc.",
+  "default_locale": "en",
+  "update_url": "https://api.meetsidekick.com/service/update2/crx",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAy1EESwROxyWrKobdluLWOMUTqH4qf/RJlxhKbOAhzKOYm2nwT1vTZSpidq13VmfVVHukk280pwyTi93MJYJia5eAnq9jpNJTvnqYZ3tFGY4sCm7k9uxNJwuwbcXlzJwR2JtiqYRdsZvnMj+wKZTrHDOY9FqpNzRxxO3Cz/yTJ19Q4tjlehcKocsDMtDWmKaZqRQKcqeuHSfjb37a6e11jnECRVfVQtwfUSO1CRFTVJOfUC9nN13NreRD1B0qPkUunoXUk57nXPsKdg8X8uPZ1XG7zVT4ecaMZm0b7rKElk9Kma60V6ZqQs3bDcOpANW4YyH/K6xjb/HYaDXjNOa+yQIDAQAB",
+  "oauth2": {
+    "client_id": "366837256033-tp0qg6uuql9nc0ai4qr20k177musf84q.apps.googleusercontent.com",
+    "scopes": [
+      "openid",
+      "profile",
+      "email"
+    ]
+  },
+  "icons": {
+    "16": "shared/assets/icons/16x16.png",
+    "19": "shared/assets/icons/19x19.png",
+    "38": "shared/assets/icons/38x38.png",
+    "48": "shared/assets/icons/48x48.png",
+    "128": "shared/assets/icons/128x128.png",
+    "256": "shared/assets/icons/256x256.png",
+    "512": "shared/assets/icons/512x512.png"
+  },
+  "background": {
+    "page": "background/core/background.html"
+  },
+  "chrome_url_overrides": {
+    "newtab": "ui/ntp/ntp.html"
+  },
+  "permissions": [
+    "unlimitedStorage",
+    "webNavigation",
+    "bookmarks",
+    "history",
+    "search",
+    "edge://favicon/",
+    "sessions",
+    "proxy",
+    "webRequest",
+    "webRequestBlocking",
+    "notifications",
+    "contentSettings",
+    "edge.workspaces",
+    "management"
+  ],
+  "omnibox": {
+    "keyword": "_aaaaaaasidekick"
+  },
+  "web_accessible_resources": [
+    "background/web/*",
+    "meta/pkg/*",
+    "common/utils/*"
+  ],
+  "externally_connectable": {
+    "matches": [
+      "https://*.meetsidekick.com/*"
+    ]
+  },
+  "commands": {
+    "global-search": {
+      "suggested_key": {
+        "default": "Alt+F",
+        "windows": "Alt+S",
+        "linux": "Alt+S"
+      },
+      "description": "__MSG_manifest_global_search_description__"
+    },
+    "activate-service-1": {
+      "suggested_key": {
+        "default": "Alt+1"
+      },
+      "description": "__MSG_manifest_activate_service_1__"
+    },
+    "activate-service-2": {
+      "description": "__MSG_manifest_activate_service_2__",
+      "suggested_key": {
+        "default": "Alt+2"
+      }
+    },
+    "activate-service-3": {
+      "description": "__MSG_manifest_activate_service_3__",
+      "suggested_key": {
+        "default": "Alt+3"
+      }
+    },
+    "activate-service-4": {
+      "description": "__MSG_manifest_activate_service_4__",
+      "suggested_key": {
+        "default": "Alt+4"
+      }
+    },
+    "activate-service-5": {
+      "description": "__MSG_manifest_activate_service_5__",
+      "suggested_key": {
+        "default": "Alt+5"
+      }
+    },
+    "activate-service-6": {
+      "description": "__MSG_manifest_activate_service_6__",
+      "suggested_key": {
+        "default": "Alt+6"
+      }
+    },
+    "activate-service-7": {
+      "description": "__MSG_manifest_activate_service_7__",
+      "suggested_key": {
+        "default": "Alt+7"
+      }
+    },
+    "activate-service-8": {
+      "description": "__MSG_manifest_activate_service_8__",
+      "suggested_key": {
+        "default": "Alt+8"
+      }
+    },
+    "activate-service-9": {
+      "description": "__MSG_manifest_activate_service_9__",
+      "suggested_key": {
+        "default": "Alt+9"
+      }
+    },
+    "toggle-active-tabs": {
+      "on_modifier_released": "close_tab_switcher",
+      "description": "__MSG_manifest_toggle_active_tabs_description__"
+    },
+    "toggle-active-tabs-ctrl-tab": {
+      "description": "__MSG_manifest_toggle_active_tabs_ctr_tab_description__",
+      "on_modifier_released": "close_tab_switcher",
+      "suggested_key": {
+        "default": "Ctrl+Tab",
+        "mac": "MacCtrl+Tab"
+      }
+    },
+    "toggle-active-tabs-ctrl-shift-tab": {
+      "description": "__MSG_manifest_toggle_active_tabs_ctrl_shift_tab_description__",
+      "on_modifier_released": "close_tab_switcher",
+      "suggested_key": {
+        "default": "Ctrl+Shift+Tab",
+        "mac": "MacCtrl+Shift+Tab"
+      }
+    },
+    "show-sessions": {
+      "on_modifier_released": "show-sessions-modifier-released",
+      "suggested_key": {
+        "default": "Alt+W"
+      },
+      "description": "__MSG_manifest_show_sessions_description__"
+    },
+    "toggle-sessions-sidecar": {
+      "suggested_key": {
+        "default": "Shift+Alt+W"
+      },
+      "description": "__MSG_manifest_toggle_sessions_sidecar_description__"
+    },
+    "toggle-help-sidecar": {
+      "suggested_key": {
+        "default": "Alt+H"
+      },
+      "description": "__MSG_manifest_toggle_help_sidecar_description__"
+    },
+    "open-split-menu": {
+      "suggested_key": {
+        "default": "Alt+B"
+      },
+      "description": "__MSG_manifest_open_split_menu_description__"
+    },
+    "open-last-split-panel": {
+      "suggested_key": {
+        "default": "Alt+Z"
+      },
+      "description": "__MSG_manifest_open_last_split_panel_description__"
+    },
+    "open-collections-sidecar": {
+      "suggested_key": {
+        "default": "Alt+C"
+      },
+      "description": "__MSG_manifest_open_collections_sidecar_description__"
+    },
+    "toggle-window-focus-mode": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+F"
+      },
+      "description": "__MSG_manifest_toggle_window_focus_mode_description__"
+    },
+    "toggle-sidebar": {
+      "suggested_key": {
+        "default": "Alt+Shift+S"
+      },
+      "description": "__MSG_manifest_toggle_sidebar_description__"
+    },
+    "pin-vertical-tabs-sidecar": {
+      "suggested_key": {
+        "default": "Alt+S"
+      },
+      "description": "__MSG_manifest_pin_vertical_tabs_sidecar_description__"
+    }
+  },
+  "content_security_policy": "script-src 'self' https://js.intercomcdn.com 'sha256-wbq4V6BR34PlDGfQQpFuQ4KKSs32/8RzjMWNhdy+988='; object-src 'self'",
+  "edge_specific_permissions": [
+    "workspaces"
+  ],
+  "browser_specific_settings": {
+    "edge": {
+      "browser_action_next_to_address_bar": true
+    }
+  }
+}

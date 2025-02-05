@@ -1,0 +1,2 @@
+window.sidekick(r=>{let n={menuUnread:"#ui_rmenu_unread .ui_rmenu_count",pageUnread:"#page_menu_group_gim > .ui_rmenu_count'",unread:".ui_rmenu_count"},a=()=>{let t=document.querySelector(n.pageUnread),u=document.querySelector(n.menuUnread),e=0;document.querySelector(n.pageUnread)?e=parseInt(t.innerText,10):u&&(e=parseInt(u.innerText,10)),Number.isNaN(e)&&(e=0),r.setBadge(e)};r.observe(n.unread,a)});
+

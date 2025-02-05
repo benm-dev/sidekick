@@ -1,0 +1,2 @@
+window.sidekick(e=>{let t={unreadMessages:".qa-LeftColumn-CountersUnread"},r="yandex_login",n=45e3,o=e.assert,a=s=>`No element for selector: ${s}`,c=async()=>{if(!e.isCookieExist(r)){e.setBadge(0);return}let s=await e.waitUntilElementExist(document,t.unreadMessages,n);o(!!s,a("unreadMessages"),{clearBadges:!0});let g=Number.parseInt(s.innerText.replace(/\s/g,""),10)||0;e.setBadge(g)};e.observe(t.unreadMessages,c)});
+

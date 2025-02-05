@@ -1,0 +1,2 @@
+var c=e=>`No element for selector ${e}`;var s={directMessages:"a[href*='/direct/inbox/']"};var a=/\d+/,i=async(e,t,n)=>{try{if(!e.isCookieExist(t)){e.setBadge(0);return}let r=await e.waitUntilElementExist(document,s.directMessages,n);if(!r)throw new Error(c("directMessages"));let o=a.exec(r.innerText)?.[0]||"";e.setBadge(Number.parseInt(o)||0)}catch{let o=e.assert;o(!1,"Cant set badges",{clearBadges:!0})}};window.sidekick(e=>{let t="ds_user_id";e.observe(s.directMessages,()=>i(e,t,45e3))});
+

@@ -1,0 +1,2 @@
+var e=(n,r,t=!0)=>t?Object.prototype.hasOwnProperty.call(n,r):r in n;var o=class extends Error{context;constructor(r,t={}){super(r),this.name="DetailedError",this.context=t,e(Error,"captureStackTrace")&&typeof Error.captureStackTrace=="function"&&Error.captureStackTrace(this,this.constructor)}};var a=class extends o{constructor(r,t,s){super(`[${r}]: ${t}`,{extra:s,tags:{recipeId:r}}),this.name="RecipeError"}};export{a as RecipeError};
+
